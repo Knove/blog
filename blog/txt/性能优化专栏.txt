@@ -1,0 +1,34 @@
+性能优化专栏
+
+
+四、webpack的一些plugin，怎么使用webpack对项目进行优化。
+
+构建优化
+0、合理配置
+1、减少编译体积 ContextReplacementPugin、IgnorePlugin、babel-plugin-import、babel-plugin-transform-runtime。
+2、并行编译 happypack、thread-loader、uglifyjsWebpackPlugin开启并行
+3、缓存 cache-loader、hard-source-webpack-plugin、uglifyjsWebpackPlugin开启缓存、babel-loader开启缓存
+4、预编译 dllWebpackPlugin && DllReferencePlugin、auto-dll-webapck-plugin
+性能优化
+1、减少编译体积 Tree-shaking、Scope Hositing。
+2、hash缓存 webpack-md5-plugin
+3、拆包 splitChunksPlugin、import()、require.ensure
+
+
+
+十、Web性能优化
+https://segmentfault.com/a/1190000008132322
+1. [资源]对于目前正在用的方案必要性： 例如JQ，React，都有轻量级更换。UI Bootstrap 巨大的CSS开销，单页应用会加载大量的JS
+2. [网络] HTTP / 2。CDN加速(原理：分发缓存)。预载资源(资源文件优先级调整) rel=preload (预载), prefetch (最低)。 HTTP1 资源越少越快，HTTP2越多越快
+3. UglifyJS/babel-minify代码压缩， webpack 代码拆分，按需加载.缓存代码
+4. 优化图片（格式更换，响应式懒加载，视频取代gif)  https://css-tricks.com/the-complete-guide-to-lazy-loading-images/ (图片lazy load) https://juejin.im/post/5bfac3bd51882566936071e1 [盘点]项目中可以怎么优化图片
+5. [使用]减少对DOM的操作、减少Cookie大小
+6. [CSS] 避免全局布局,避免布局抖动
+7. 
+
+
+
+附：如何判断元素是否进入可视区域viewport
+el.offsetTop - document.documentElement.scrollTop <= viewPortHeight
+el.getBoundingClientReact().top <= viewPortHeight
+intersectionRatio > 0 && intersectionRatio <= 1
